@@ -91,19 +91,19 @@
 
 @layer components {
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    @apply bg-white/80 backdrop-blur-xl border border-white/30 shadow-xl;
   }
   
   .glass-dark {
-    @apply bg-black/10 backdrop-blur-md border border-black/20;
+    @apply bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 shadow-xl;
   }
   
   .neumorphism {
-    @apply shadow-neumorphism bg-brand-neutral-50;
+    @apply shadow-[20px_20px_40px_rgba(0,0,0,0.1),-20px_-20px_40px_rgba(255,255,255,0.9)] bg-gray-50;
   }
   
   .neumorphism-inset {
-    @apply shadow-neumorphism-inset bg-brand-neutral-50;
+    @apply shadow-[inset_20px_20px_40px_rgba(0,0,0,0.1),inset_-20px_-20px_40px_rgba(255,255,255,0.9)] bg-gray-50;
   }
   
   .text-gradient {
@@ -115,7 +115,7 @@
   }
   
   .shimmer::before {
-    @apply absolute inset-0 bg-shimmer-gradient animate-shimmer;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer;
     content: '';
   }
 }
