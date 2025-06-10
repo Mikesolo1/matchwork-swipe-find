@@ -7,7 +7,7 @@ const Benefits = () => {
       icon: Zap,
       title: "Просто",
       description: "Всё в Telegram — без регистрации, форм и сложных интерфейсов",
-      color: "from-yellow-400 to-orange-500"
+      color: "from-amber-400 to-orange-500"
     },
     {
       icon: Clock,
@@ -19,7 +19,7 @@ const Benefits = () => {
       icon: Target,
       title: "Точно",
       description: "ИИ-алгоритм учитывает ваши навыки, опыт и предпочтения",
-      color: "from-green-400 to-green-600"
+      color: "from-emerald-400 to-green-600"
     },
     {
       icon: Gift,
@@ -37,12 +37,12 @@ const Benefits = () => {
       icon: Shield,
       title: "Безопасно",
       description: "Ваши данные защищены, анонимность до момента взаимного интереса",
-      color: "from-gray-400 to-gray-600"
+      color: "from-slate-400 to-slate-600"
     }
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-br from-brand-gray-light to-white">
+    <section id="benefits" className="py-20 bg-gradient-to-br from-slate-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-montserrat font-bold text-brand-gray-dark mb-6">
@@ -60,15 +60,15 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-scale-in"
+              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 animate-scale-in border border-gray-100"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               <div className="space-y-4">
-                <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform animate-pulse-pink`}>
-                  <benefit.icon className="text-white" size={28} />
+                <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
+                  <benefit.icon className="text-white" size={24} />
                 </div>
                 
-                <h3 className="text-2xl font-montserrat font-bold text-brand-gray-dark">
+                <h3 className="text-xl font-montserrat font-bold text-brand-gray-dark">
                   {benefit.title}
                 </h3>
                 
@@ -81,23 +81,23 @@ const Benefits = () => {
         </div>
         
         {/* Статистика успеха */}
-        <div className="mt-20 bg-white rounded-3xl p-8 shadow-xl">
+        <div className="mt-20 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="animate-scale-in" style={{animationDelay: '0.1s'}}>
-              <div className="text-4xl font-montserrat font-bold text-brand-pink mb-2">89%</div>
-              <div className="text-brand-gray-dark/70 font-open-sans">Получили отклик в первый день</div>
+              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">89%</div>
+              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Получили отклик в первый день</div>
             </div>
             <div className="animate-scale-in" style={{animationDelay: '0.2s'}}>
-              <div className="text-4xl font-montserrat font-bold text-brand-pink mb-2">2.3x</div>
-              <div className="text-brand-gray-dark/70 font-open-sans">Быстрее чем обычные сайты</div>
+              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">2.3x</div>
+              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Быстрее чем обычные сайты</div>
             </div>
             <div className="animate-scale-in" style={{animationDelay: '0.3s'}}>
-              <div className="text-4xl font-montserrat font-bold text-brand-pink mb-2">95%</div>
-              <div className="text-brand-gray-dark/70 font-open-sans">Довольны результатом</div>
+              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">95%</div>
+              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Довольны результатом</div>
             </div>
             <div className="animate-scale-in" style={{animationDelay: '0.4s'}}>
-              <div className="text-4xl font-montserrat font-bold text-brand-pink mb-2">24/7</div>
-              <div className="text-brand-gray-dark/70 font-open-sans">Поддержка в Telegram</div>
+              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">24/7</div>
+              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Поддержка в Telegram</div>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import { Bot, Heart, MessageCircle, CheckCircle, Clock } from 'lucide-react';
 
 const HowItWorks = () => {
@@ -52,15 +53,15 @@ const HowItWorks = () => {
             >
               {/* Соединительная линия */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 -right-4 w-8 h-px bg-gradient-to-r from-brand-pink to-brand-pink-light"></div>
+                <div className="hidden lg:block absolute top-16 -right-4 w-8 h-px bg-gradient-to-r from-brand-pink/50 to-brand-pink-light/50"></div>
               )}
               
-              <div className="text-center space-y-4 p-6 rounded-2xl hover:bg-brand-gray-light/50 transition-all duration-300 group-hover:scale-105">
+              <div className="text-center space-y-4 p-6 rounded-2xl hover:bg-gray-50/80 transition-all duration-300 group-hover:scale-[1.02]">
                 <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-brand-pink to-brand-pink-light rounded-full mx-auto flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow animate-pulse-pink">
-                    <step.icon className="text-white" size={28} />
+                  <div className="w-16 h-16 bg-gradient-to-br from-brand-pink to-brand-pink-light rounded-xl mx-auto flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
+                    <step.icon className="text-white" size={24} />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-brand-gray-dark text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-brand-gray-dark text-white rounded-full flex items-center justify-center text-sm font-bold shadow-sm">
                     {index + 1}
                   </div>
                 </div>
@@ -79,7 +80,7 @@ const HowItWorks = () => {
         
         {/* Дополнительная информация */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-2 bg-brand-pink/10 px-6 py-3 rounded-full">
+          <div className="inline-flex items-center space-x-2 bg-brand-pink/10 px-6 py-3 rounded-full border border-brand-pink/20">
             <Clock className="text-brand-pink" size={20} />
             <span className="text-brand-pink font-open-sans font-semibold">
               Среднее время поиска: 2-7 дней
