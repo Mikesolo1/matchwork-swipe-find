@@ -1,115 +1,149 @@
 
-import { ArrowRight, Heart, Zap, Clock } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-brand-pink/5 pt-20">
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Левая колонка с текстом */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-2 text-brand-pink font-open-sans font-semibold">
-                <Zap size={20} />
-                <span>Революция в поиске работы</span>
-              </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-montserrat font-bold text-brand-gray-dark leading-tight">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Сложный градиентный фон */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-neutral-50 via-white to-brand-primary/5"></div>
+      
+      {/* Анимированные элементы фона */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 rounded-full animate-morphing blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-brand-secondary/15 to-brand-accent/10 rounded-full animate-float blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-brand-primary/5 to-transparent rounded-full animate-pulse"></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Левая колонка */}
+          <div className="space-y-8">
+            {/* Бейдж */}
+            <div className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full animate-fade-in-down">
+              <Sparkles className="text-brand-primary" size={16} />
+              <span className="text-sm font-medium text-brand-neutral-700">Революция в HR-tech</span>
+            </div>
+            
+            {/* Заголовок */}
+            <div className="space-y-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <h1 className="text-display-2xl font-display font-bold leading-none">
                 Найдите работу за{' '}
-                <span className="bg-gradient-to-r from-brand-pink to-brand-pink-light bg-clip-text text-transparent">
+                <span className="text-gradient bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent animate-gradient-shift bg-300% bg-clip-text">
                   5 минут
                 </span>
               </h1>
               
-              <p className="text-xl text-brand-gray-dark/80 font-open-sans leading-relaxed max-w-lg">
-                Прямо в Telegram. Без резюме. Свайпайте вакансии как в Tinder и получайте предложения от работодателей.
+              <p className="text-xl text-brand-neutral-600 leading-relaxed max-w-lg font-body">
+                Революционная платформа для поиска работы в Telegram. Свайпайте вакансии, получайте матчи от HR, находите dream job.
               </p>
             </div>
             
-            {/* Статистика */}
-            <div className="grid grid-cols-3 gap-6 py-6">
-              <div className="text-center animate-scale-in" style={{animationDelay: '0.2s'}}>
-                <div className="text-2xl lg:text-3xl font-montserrat font-bold text-brand-pink">1000+</div>
-                <div className="text-sm text-brand-gray-dark/70 font-open-sans">Вакансий</div>
+            {/* Метрики */}
+            <div className="grid grid-cols-3 gap-6 py-6 animate-scale-in" style={{animationDelay: '0.4s'}}>
+              <div className="text-center">
+                <div className="text-3xl font-display font-bold text-brand-primary">2,500+</div>
+                <div className="text-sm text-brand-neutral-500 font-medium">Кандидатов</div>
               </div>
-              <div className="text-center animate-scale-in" style={{animationDelay: '0.4s'}}>
-                <div className="text-2xl lg:text-3xl font-montserrat font-bold text-brand-pink">500+</div>
-                <div className="text-sm text-brand-gray-dark/70 font-open-sans">Компаний</div>
+              <div className="text-center">
+                <div className="text-3xl font-display font-bold text-brand-primary">500+</div>
+                <div className="text-sm text-brand-neutral-500 font-medium">Компаний</div>
               </div>
-              <div className="text-center animate-scale-in" style={{animationDelay: '0.6s'}}>
-                <div className="text-2xl lg:text-3xl font-montserrat font-bold text-brand-pink">95%</div>
-                <div className="text-sm text-brand-gray-dark/70 font-open-sans">Матчей</div>
+              <div className="text-center">
+                <div className="text-3xl font-display font-bold text-brand-primary">98%</div>
+                <div className="text-sm text-brand-neutral-500 font-medium">Матчей</div>
               </div>
             </div>
             
-            {/* CTA кнопки */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
               <a 
                 href="https://t.me/matchwork_bot"
-                className="group bg-gradient-to-r from-brand-pink to-brand-pink-light text-white px-8 py-4 rounded-xl font-open-sans font-semibold text-lg hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-2"
+                className="group relative inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-elegant hover:shadow-hover-lift transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
-                <span>Попробовать сейчас</span>
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10">Начать поиск</span>
+                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
               
-              <button className="border-2 border-brand-pink text-brand-pink px-8 py-4 rounded-xl font-open-sans font-semibold text-lg hover:bg-brand-pink/5 transition-all duration-300 flex items-center justify-center space-x-2">
-                <Clock size={20} />
-                <span>Посмотреть как работает</span>
+              <button className="group inline-flex items-center justify-center space-x-2 glass border border-brand-neutral-200 text-brand-neutral-700 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/80 transition-all duration-300">
+                <TrendingUp size={20} className="group-hover:scale-110 transition-transform" />
+                <span>Как это работает</span>
               </button>
             </div>
             
             {/* Социальное доказательство */}
-            <div className="flex items-center space-x-4 text-sm text-brand-gray-dark/60 font-open-sans pt-4">
+            <div className="flex items-center space-x-4 text-sm text-brand-neutral-500 pt-4 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-pink to-brand-pink-light rounded-full border-2 border-white shadow-sm"></div>
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-brand-pink rounded-full border-2 border-white shadow-sm"></div>
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-2 border-white shadow-sm"></div>
+                {[1,2,3].map((i) => (
+                  <div key={i} className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full border-2 border-white shadow-sm"></div>
+                ))}
               </div>
-              <span>Уже <strong>2,500+</strong> человек нашли работу</span>
+              <span className="font-medium">
+                Присоединились <strong className="text-brand-primary">2,500+</strong> профессионалов
+              </span>
             </div>
           </div>
           
-          {/* Правая колонка с демо телефона */}
+          {/* Правая колонка - Интерактивный мокап */}
           <div className="relative animate-slide-in-right">
-            <div className="relative mx-auto max-w-sm">
-              {/* Мокап телефона */}
-              <div className="bg-gray-900 rounded-[2.5rem] p-3 shadow-2xl animate-gentle-float">
-                <div className="bg-white rounded-[2rem] overflow-hidden">
+            <div className="relative mx-auto max-w-sm perspective-1000">
+              {/* Главный мокап телефона */}
+              <div className="relative glass border border-white/30 rounded-[2.5rem] p-1 shadow-glass hover:shadow-hover-lift transform hover:-translate-y-2 transition-all duration-500 animate-float">
+                <div className="bg-gradient-to-br from-brand-neutral-900 to-brand-neutral-800 rounded-[2.3rem] overflow-hidden">
                   {/* Статус бар */}
-                  <div className="bg-gray-900 h-8 flex items-center justify-center">
-                    <div className="text-white text-xs font-semibold">Telegram</div>
+                  <div className="bg-brand-neutral-900 h-12 flex items-center justify-center relative">
+                    <div className="text-white text-sm font-medium">Telegram</div>
+                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-white/30 rounded-full"></div>
                   </div>
                   
-                  {/* Контент бота */}
-                  <div className="p-6 space-y-4 h-96 bg-gradient-to-b from-white to-gray-50">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-r from-brand-pink to-brand-pink-light rounded-full mx-auto mb-3 flex items-center justify-center animate-subtle-glow">
-                        <Heart className="text-white" size={24} />
+                  {/* Контент */}
+                  <div className="h-[500px] bg-gradient-to-b from-white to-brand-neutral-50 p-6 space-y-6">
+                    {/* Хедер бота */}
+                    <div className="text-center animate-fade-in-down" style={{animationDelay: '1s'}}>
+                      <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full mx-auto mb-4 flex items-center justify-center shadow-elegant animate-glow">
+                        <Users className="text-white" size={32} />
                       </div>
-                      <h3 className="font-montserrat font-bold text-lg text-gray-800">Frontend Developer</h3>
-                      <p className="text-sm text-gray-600">IT-компания • Удаленно</p>
+                      <h3 className="font-display font-bold text-xl text-brand-neutral-800">Frontend Developer</h3>
+                      <p className="text-brand-neutral-600 font-medium">Тинькофф • Удаленно</p>
                     </div>
                     
-                    <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-                      <p className="text-sm text-gray-700 mb-3 font-semibold">💰 80,000 - 120,000 ₽</p>
-                      <p className="text-xs text-gray-500">React, TypeScript, Node.js</p>
+                    {/* Карточка вакансии */}
+                    <div className="glass-dark rounded-2xl p-6 shadow-elegant animate-scale-in" style={{animationDelay: '1.2s'}}>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-display font-bold text-brand-primary">150,000 ₽</span>
+                          <span className="text-sm text-brand-neutral-500 font-medium">в месяц</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {['React', 'TypeScript', 'Next.js'].map((tech) => (
+                            <span key={tech} className="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs font-medium rounded-full">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                     
-                    <div className="flex justify-center space-x-6 pt-4">
-                      <button className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
-                        <span className="text-lg">❌</span>
+                    {/* Кнопки действий */}
+                    <div className="flex justify-center space-x-8 pt-8 animate-fade-in-up" style={{animationDelay: '1.4s'}}>
+                      <button className="w-16 h-16 bg-brand-neutral-100 rounded-full flex items-center justify-center hover:bg-brand-neutral-200 transition-colors shadow-elegant">
+                        <span className="text-2xl">❌</span>
                       </button>
-                      <button className="w-12 h-12 bg-brand-pink rounded-full flex items-center justify-center hover:bg-brand-pink-dark transition-colors shadow-md">
-                        <Heart className="text-white" size={20} />
+                      <button className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-elegant animate-glow">
+                        <span className="text-2xl">💖</span>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
               
-              {/* Декоративные элементы */}
-              <div className="absolute -top-4 -right-4 w-6 h-6 bg-brand-pink/20 rounded-full animate-gentle-bounce"></div>
-              <div className="absolute -bottom-4 -left-4 w-4 h-4 bg-brand-pink-light/30 rounded-full animate-gentle-bounce" style={{animationDelay: '1.5s'}}></div>
+              {/* Плавающие элементы */}
+              <div className="absolute -top-8 -right-8 w-16 h-16 glass rounded-2xl flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+                <Zap className="text-brand-primary" size={24} />
+              </div>
+              <div className="absolute -bottom-8 -left-8 w-12 h-12 glass rounded-xl flex items-center justify-center animate-float" style={{animationDelay: '3s'}}>
+                <TrendingUp className="text-brand-secondary" size={20} />
+              </div>
             </div>
           </div>
         </div>

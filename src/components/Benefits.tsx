@@ -1,104 +1,160 @@
 
-import { Zap, Heart, Target, Gift, Shield, Clock } from 'lucide-react';
+import { Zap, Heart, Target, Gift, Shield, Clock, ArrowRight, Sparkles } from 'lucide-react';
 
 const Benefits = () => {
   const benefits = [
     {
       icon: Zap,
-      title: "Просто",
-      description: "Всё в Telegram — без регистрации, форм и сложных интерфейсов",
-      color: "from-amber-400 to-orange-500"
+      title: "Мгновенно",
+      description: "Всё в Telegram — без регистрации, форм и сложных интерфейсов. Один клик и вы уже ищете работу",
+      gradient: "from-amber-400 via-orange-500 to-red-500",
+      stat: "5 сек",
+      statLabel: "до начала"
     },
     {
       icon: Clock,
-      title: "Быстро", 
-      description: "Подбор за считанные минуты, первые предложения уже через час",
-      color: "from-blue-400 to-blue-600"
+      title: "Молниеносно", 
+      description: "Подбор за считанные минуты, первые предложения уже через час благодаря ИИ-алгоритмам",
+      gradient: "from-blue-400 via-indigo-500 to-purple-600",
+      stat: "1 час",
+      statLabel: "первый матч"
     },
     {
       icon: Target,
-      title: "Точно",
-      description: "ИИ-алгоритм учитывает ваши навыки, опыт и предпочтения",
-      color: "from-emerald-400 to-green-600"
+      title: "Персонально",
+      description: "Продвинутый ИИ анализирует ваши навыки, опыт и предпочтения для идеального подбора",
+      gradient: "from-emerald-400 via-teal-500 to-cyan-600",
+      stat: "98%",
+      statLabel: "точность"
     },
     {
       icon: Gift,
-      title: "Бесплатно",
-      description: "Для соискателей сервис полностью бесплатный навсегда",
-      color: "from-purple-400 to-purple-600"
+      title: "Полностью бесплатно",
+      description: "Для соискателей сервис абсолютно бесплатный навсегда. Никаких скрытых платежей",
+      gradient: "from-purple-400 via-pink-500 to-red-500",
+      stat: "0₽",
+      statLabel: "навсегда"
     },
     {
       icon: Heart,
-      title: "Честно",
-      description: "Взаимный интерес — работодатели видят только тех, кому интересно",
-      color: "from-brand-pink to-brand-pink-light"
+      title: "Взаимный интерес",
+      description: "Работодатели видят только заинтересованных кандидатов, что повышает качество предложений",
+      gradient: "from-brand-primary via-pink-500 to-red-400",
+      stat: "95%",
+      statLabel: "качество"
     },
     {
       icon: Shield,
-      title: "Безопасно",
-      description: "Ваши данные защищены, анонимность до момента взаимного интереса",
-      color: "from-slate-400 to-slate-600"
+      title: "Максимальная приватность",
+      description: "Полная анонимность до момента взаимного интереса. Ваши данные под надежной защитой",
+      gradient: "from-slate-400 via-gray-500 to-zinc-600",
+      stat: "100%",
+      statLabel: "безопасность"
     }
   ];
 
+  const stats = [
+    { value: "2,500+", label: "Активных кандидатов", change: "+23%" },
+    { value: "500+", label: "Компаний-партнеров", change: "+45%" },
+    { value: "89%", label: "Получили отклик в первый день", change: "+12%" },
+    { value: "95%", label: "Довольны результатом", change: "+8%" }
+  ];
+
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-br from-slate-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-montserrat font-bold text-brand-gray-dark mb-6">
-            Почему{' '}
-            <span className="bg-gradient-to-r from-brand-pink to-brand-pink-light bg-clip-text text-transparent">
-              Мэ́тчворк?
-            </span>
+    <section id="benefits" className="py-32 bg-gradient-to-b from-brand-neutral-50 to-white relative overflow-hidden">
+      {/* Декоративные элементы */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent rounded-full blur-3xl animate-morphing"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-brand-secondary/15 to-transparent rounded-full blur-2xl animate-float"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Заголовок */}
+        <div className="text-center mb-20 animate-fade-in-up">
+          <div className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+            <Sparkles className="text-brand-primary" size={16} />
+            <span className="text-sm font-medium text-brand-neutral-600">Почему выбирают нас</span>
+          </div>
+          
+          <h2 className="text-display-lg font-display font-bold text-brand-neutral-800 mb-6">
+            Революционные{' '}
+            <span className="text-gradient">преимущества</span>
           </h2>
-          <p className="text-xl text-brand-gray-dark/70 font-open-sans max-w-3xl mx-auto">
-            Мы объединили лучшее из мира знакомств и рекрутинга, чтобы сделать поиск работы простым и эффективным
+          
+          <p className="text-xl text-brand-neutral-600 max-w-3xl mx-auto leading-relaxed">
+            Мы объединили лучшее из мира знакомств и рекрутинга, создав идеальную экосистему для поиска работы
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Преимущества */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 animate-scale-in border border-gray-100"
+              className="group relative animate-fade-in-up"
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="space-y-4">
-                <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
-                  <benefit.icon className="text-white" size={24} />
+              <div className="relative glass rounded-3xl p-8 hover:shadow-hover-lift transform hover:-translate-y-2 transition-all duration-500 group-hover:scale-[1.02] h-full">
+                {/* Статистика в углу */}
+                <div className="absolute top-4 right-4 text-right">
+                  <div className="text-2xl font-display font-bold text-brand-primary">{benefit.stat}</div>
+                  <div className="text-xs text-brand-neutral-500 font-medium">{benefit.statLabel}</div>
                 </div>
                 
-                <h3 className="text-xl font-montserrat font-bold text-brand-gray-dark">
-                  {benefit.title}
-                </h3>
+                {/* Иконка с градиентом */}
+                <div className="mb-6">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-2xl flex items-center justify-center shadow-elegant group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                    <benefit.icon className="text-white" size={24} />
+                  </div>
+                </div>
                 
-                <p className="text-brand-gray-dark/70 font-open-sans leading-relaxed">
-                  {benefit.description}
-                </p>
+                {/* Контент */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-display font-bold text-brand-neutral-800">
+                    {benefit.title}
+                  </h3>
+                  
+                  <p className="text-brand-neutral-600 leading-relaxed text-sm">
+                    {benefit.description}
+                  </p>
+                  
+                  {/* Подробнее */}
+                  <div className="flex items-center text-brand-primary text-sm font-medium group-hover:translate-x-1 transition-transform">
+                    <span>Подробнее</span>
+                    <ArrowRight size={16} className="ml-1" />
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
         
-        {/* Статистика успеха */}
-        <div className="mt-20 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div className="animate-scale-in" style={{animationDelay: '0.1s'}}>
-              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">89%</div>
-              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Получили отклик в первый день</div>
-            </div>
-            <div className="animate-scale-in" style={{animationDelay: '0.2s'}}>
-              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">2.3x</div>
-              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Быстрее чем обычные сайты</div>
-            </div>
-            <div className="animate-scale-in" style={{animationDelay: '0.3s'}}>
-              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">95%</div>
-              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Довольны результатом</div>
-            </div>
-            <div className="animate-scale-in" style={{animationDelay: '0.4s'}}>
-              <div className="text-3xl lg:text-4xl font-montserrat font-bold text-brand-pink mb-2">24/7</div>
-              <div className="text-brand-gray-dark/70 font-open-sans text-sm">Поддержка в Telegram</div>
-            </div>
+        {/* Расширенная статистика */}
+        <div className="glass rounded-3xl p-8 animate-scale-in" style={{animationDelay: '0.6s'}}>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-display font-bold text-brand-neutral-800 mb-2">
+              Впечатляющие результаты
+            </h3>
+            <p className="text-brand-neutral-600">Данные за последние 30 дней</p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div 
+                key={index} 
+                className="text-center group animate-fade-in-up"
+                style={{animationDelay: `${0.8 + index * 0.1}s`}}
+              >
+                <div className="text-4xl font-display font-bold text-brand-primary mb-2 group-hover:scale-110 transition-transform">
+                  {stat.value}
+                </div>
+                <div className="text-brand-neutral-600 text-sm mb-2 font-medium">
+                  {stat.label}
+                </div>
+                <div className="inline-flex items-center text-green-600 text-xs font-semibold bg-green-50 px-2 py-1 rounded-full">
+                  <ArrowRight size={12} className="mr-1 rotate-[-45deg]" />
+                  {stat.change}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
