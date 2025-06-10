@@ -1,144 +1,107 @@
 
-import { ArrowRight, Star, Users, Zap, Sparkles, CheckCircle } from 'lucide-react';
+import { ArrowRight, Target, Clock, Users } from 'lucide-react';
 
 const CTA = () => {
-  const features = [
-    "Бесплатно навсегда",
-    "Без регистрации", 
-    "Результат за 5 минут",
-    "Поддержка 24/7"
-  ];
-
   return (
-    <section className="py-32 relative overflow-hidden">
-      {/* Сложный градиентный фон */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent"></div>
-      
-      {/* Анимированные декоративные элементы */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-48 -translate-y-48 animate-morphing"></div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full translate-x-80 translate-y-80 animate-float"></div>
-        <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-white/20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-white/15 rounded-full animate-morphing" style={{animationDelay: '1s'}}></div>
+    <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      {/* Анимированные элементы фона */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-tr from-brand-secondary/20 to-brand-accent/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto text-center text-white">
-          <div className="space-y-12 animate-fade-in-up">
-            {/* Бейдж */}
-            <div className="inline-flex items-center space-x-2 glass border border-white/20 px-4 py-2 rounded-full">
-              <Sparkles size={16} />
-              <span className="text-sm font-medium">Ограниченное предложение</span>
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          {/* Бейдж */}
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 animate-fade-in-down">
+            <Target className="text-brand-primary" size={16} />
+            <span className="text-sm font-medium text-white">Эксклюзивное предложение</span>
+          </div>
+
+          {/* Заголовок */}
+          <div className="space-y-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
+              Готовы найти работу{' '}
+              <span className="text-gradient bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text">
+                мечты?
+              </span>
+            </h2>
+            
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Присоединяйтесь к тысячам профессионалов, которые уже нашли идеальную работу через наш Telegram-бот
+            </p>
+          </div>
+
+          {/* Эксклюзивное предложение */}
+          <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 animate-scale-in" style={{animationDelay: '0.4s'}}>
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <Clock className="text-orange-400" size={24} />
+              <span className="text-lg font-bold text-white">Ограниченное предложение</span>
             </div>
             
-            {/* Заголовок */}
-            <div className="space-y-6">
-              <h2 className="text-display-xl font-display font-bold leading-tight">
-                Готовы найти работу за<br />
-                <span className="relative">
-                  пару свайпов?
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-white/30 rounded-full"></div>
-                </span>
-              </h2>
-              
-              <p className="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed font-body">
-                Присоединяйтесь к профессионалам, которые уже нашли работу мечты через нашу платформу. Это быстро, просто и эффективно.
-              </p>
-            </div>
+            <h3 className="text-2xl font-display font-bold text-white mb-4">
+              🎯 Эксклюзивные возможности
+            </h3>
             
-            {/* Социальные доказательства */}
-            <div className="grid md:grid-cols-3 gap-8 py-8">
-              <div className="flex items-center justify-center space-x-3 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-                <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center">
-                  <Users size={24} />
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Первые 1,000 пользователей получают приоритетный показ вакансий и персональную поддержку от нашей команды экспертов
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl mx-auto mb-3 flex items-center justify-center">
+                  <Target className="text-white" size={24} />
                 </div>
-                <div className="text-left">
-                  <div className="font-display font-bold text-2xl">2,500+</div>
-                  <div className="text-white/80 text-sm">пользователей</div>
-                </div>
+                <div className="text-sm text-gray-400">Приоритетный</div>
+                <div className="text-lg font-bold text-white">показ вакансий</div>
               </div>
               
-              <div className="flex items-center justify-center space-x-3 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-                <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center">
-                  <Star size={24} />
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-secondary to-brand-accent rounded-xl mx-auto mb-3 flex items-center justify-center">
+                  <Users className="text-white" size={24} />
                 </div>
-                <div className="text-left">
-                  <div className="font-display font-bold text-2xl">4.9/5</div>
-                  <div className="text-white/80 text-sm">рейтинг</div>
-                </div>
+                <div className="text-sm text-gray-400">Персональная</div>
+                <div className="text-lg font-bold text-white">поддержка HR</div>
               </div>
               
-              <div className="flex items-center justify-center space-x-3 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-                <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center">
-                  <Zap size={24} />
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-brand-primary rounded-xl mx-auto mb-3 flex items-center justify-center">
+                  <Clock className="text-white" size={24} />
                 </div>
-                <div className="text-left">
-                  <div className="font-display font-bold text-2xl">500+</div>
-                  <div className="text-white/80 text-sm">компаний</div>
-                </div>
+                <div className="text-sm text-gray-400">Быстрый</div>
+                <div className="text-lg font-bold text-white">отклик 24/7</div>
               </div>
             </div>
+          </div>
+
+          {/* CTA кнопки */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            <a 
+              href="https://t.me/matchwork_bot"
+              className="group relative inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-elegant hover:shadow-hover-lift transform hover:-translate-y-1 transition-all duration-300 overflow-hidden min-w-[280px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative z-10">Начать поиск работы</span>
+              <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+            </a>
             
-            {/* Главный CTA */}
-            <div className="space-y-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
-              <a 
-                href="https://t.me/matchwork_bot"
-                className="group relative inline-flex items-center space-x-4 bg-white text-brand-primary px-12 py-6 rounded-2xl font-display font-bold text-xl shadow-hover-lift hover:shadow-2xl transform hover:scale-105 transition-all duration-500 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-neutral-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">Начать прямо сейчас</span>
-                <ArrowRight size={28} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                
-                {/* Эффект блеска */}
-                <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
-              </a>
-              
-              {/* Список преимуществ */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                {features.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center space-x-2 animate-fade-in-up"
-                    style={{animationDelay: `${1 + index * 0.1}s`}}
-                  >
-                    <CheckCircle size={16} className="text-green-300" />
-                    <span className="text-sm font-medium opacity-90">{feature}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="text-center">
+              <div className="text-sm text-gray-400 mb-1">Уже зарегистрировано</div>
+              <div className="text-lg font-bold text-white">2,847 кандидатов</div>
+              <div className="text-xs text-gray-500">из 1,000 мест осталось 153</div>
             </div>
-            
-            {/* Специальное предложение */}
-            <div className="glass border border-white/20 rounded-3xl p-8 max-w-3xl mx-auto animate-scale-in" style={{animationDelay: '1.2s'}}>
-              <div className="space-y-4">
-                <div className="flex items-center justify-center space-x-2">
-                  <Sparkles size={20} />
-                  <h3 className="text-2xl font-display font-bold">
-                    🎯 Эксклюзивное предложение
-                  </h3>
-                </div>
-                
-                <p className="text-lg opacity-90 leading-relaxed">
-                  Первые <strong>1,000 пользователей</strong> получают приоритетный показ вакансий и персональную поддержку от нашей команды экспертов
-                </p>
-                
-                <div className="flex items-center justify-center space-x-4 pt-4">
-                  <div className="flex -space-x-2">
-                    {[1,2,3,4,5].map((i) => (
-                      <div key={i} className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-2 border-white shadow-sm"></div>
-                    ))}
-                  </div>
-                  <span className="text-sm font-medium opacity-80">
-                    Осталось <strong className="text-yellow-300">347</strong> мест
-                  </span>
-                </div>
-              </div>
+          </div>
+
+          {/* Социальное доказательство */}
+          <div className="flex flex-col items-center space-y-4 pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+            <div className="flex -space-x-2">
+              {[1,2,3,4,5].map((i) => (
+                <div key={i} className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full border-2 border-gray-800 shadow-lg"></div>
+              ))}
             </div>
-            
-            {/* Мелкий текст */}
-            <p className="text-sm opacity-70 animate-fade-in-up" style={{animationDelay: '1.4s'}}>
-              Нажимая на кнопку, вы переходите в Telegram и принимаете{' '}
-              <a href="#" className="underline hover:no-underline transition-all">условия использования</a>
+            <p className="text-gray-400 text-sm">
+              <span className="text-white font-semibold">2,847 профессионалов</span> уже используют Мэ́тчворк для поиска работы
             </p>
           </div>
         </div>

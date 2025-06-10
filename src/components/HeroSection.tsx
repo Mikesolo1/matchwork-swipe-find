@@ -1,7 +1,84 @@
 
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const HeroSection = () => {
+  const [currentJobIndex, setCurrentJobIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [swipeAnimation, setSwipeAnimation] = useState<'like' | 'pass' | null>(null);
+
+  const jobs = [
+    {
+      title: "Frontend Developer",
+      company: "Тинькофф",
+      location: "Удаленно",
+      salary: "150,000 ₽",
+      period: "в месяц",
+      skills: ["React", "TypeScript", "Next.js"],
+      gradient: "from-blue-500 to-indigo-600"
+    },
+    {
+      title: "Product Manager",
+      company: "Яндекс",
+      location: "Москва",
+      salary: "200,000 ₽",
+      period: "в месяц",
+      skills: ["Analytics", "Strategy", "Agile"],
+      gradient: "from-green-500 to-emerald-600"
+    },
+    {
+      title: "UX/UI Designer",
+      company: "Ozon",
+      location: "Санкт-Петербург",
+      salary: "120,000 ₽",
+      period: "в месяц",
+      skills: ["Figma", "Prototyping", "Research"],
+      gradient: "from-purple-500 to-pink-600"
+    },
+    {
+      title: "Backend Developer",
+      company: "ВКонтакте",
+      location: "Удаленно",
+      salary: "180,000 ₽",
+      period: "в месяц",
+      skills: ["Node.js", "Python", "PostgreSQL"],
+      gradient: "from-orange-500 to-red-600"
+    },
+    {
+      title: "Data Scientist",
+      company: "Сбер",
+      location: "Москва",
+      salary: "250,000 ₽",
+      period: "в месяц",
+      skills: ["Python", "ML", "TensorFlow"],
+      gradient: "from-cyan-500 to-blue-600"
+    }
+  ];
+
+  const nextJob = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setSwipeAnimation('like');
+    setTimeout(() => {
+      setCurrentJobIndex((prev) => (prev + 1) % jobs.length);
+      setSwipeAnimation(null);
+      setIsAnimating(false);
+    }, 500);
+  };
+
+  const prevJob = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setSwipeAnimation('pass');
+    setTimeout(() => {
+      setCurrentJobIndex((prev) => (prev - 1 + jobs.length) % jobs.length);
+      setSwipeAnimation(null);
+      setIsAnimating(false);
+    }, 500);
+  };
+
+  const currentJob = jobs[currentJobIndex];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
       {/* Анимированные элементы фона */}
@@ -17,7 +94,7 @@ const HeroSection = () => {
             {/* Бейдж */}
             <div className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full animate-fade-in-down">
               <Sparkles className="text-brand-primary" size={16} />
-              <span className="text-sm font-medium text-gray-700">Революция в HR-tech</span>
+              <span className="text-sm font-medium text-gray-800">Революция в HR-tech</span>
             </div>
             
             {/* Заголовок */}
@@ -29,7 +106,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-600 leading-relaxed max-w-lg font-body">
+              <p className="text-xl text-gray-700 leading-relaxed max-w-lg font-body">
                 Революционная платформа для поиска работы в Telegram. Свайпайте вакансии, получайте матчи от HR, находите dream job.
               </p>
             </div>
@@ -38,15 +115,15 @@ const HeroSection = () => {
             <div className="grid grid-cols-3 gap-6 py-6 animate-scale-in" style={{animationDelay: '0.4s'}}>
               <div className="text-center">
                 <div className="text-3xl font-display font-bold text-brand-primary">2,500+</div>
-                <div className="text-sm text-gray-500 font-medium">Кандидатов</div>
+                <div className="text-sm text-gray-600 font-medium">Кандидатов</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-display font-bold text-brand-primary">500+</div>
-                <div className="text-sm text-gray-500 font-medium">Компаний</div>
+                <div className="text-sm text-gray-600 font-medium">Компаний</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-display font-bold text-brand-primary">98%</div>
-                <div className="text-sm text-gray-500 font-medium">Матчей</div>
+                <div className="text-sm text-gray-600 font-medium">Матчей</div>
               </div>
             </div>
             
@@ -61,26 +138,26 @@ const HeroSection = () => {
                 <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
               
-              <button className="group inline-flex items-center justify-center space-x-2 glass border border-gray-200 text-gray-700 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all duration-300">
+              <button className="group inline-flex items-center justify-center space-x-2 glass border border-gray-200 text-gray-800 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all duration-300">
                 <TrendingUp size={20} className="group-hover:scale-110 transition-transform" />
                 <span>Как это работает</span>
               </button>
             </div>
             
             {/* Социальное доказательство */}
-            <div className="flex items-center space-x-4 text-sm text-gray-500 pt-4 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+            <div className="flex items-center space-x-4 text-sm pt-4 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
               <div className="flex -space-x-2">
                 {[1,2,3].map((i) => (
                   <div key={i} className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full border-2 border-white shadow-sm"></div>
                 ))}
               </div>
-              <span className="font-medium text-gray-600">
+              <span className="font-medium text-gray-700">
                 Присоединились <strong className="text-brand-primary">2,500+</strong> профессионалов
               </span>
             </div>
           </div>
           
-          {/* Правая колонка - Интерактивный мокап */}
+          {/* Правая колонка - Интерактивная карусель вакансий */}
           <div className="relative animate-slide-in-right">
             <div className="relative mx-auto max-w-sm perspective-1000">
               {/* Главный мокап телефона */}
@@ -93,25 +170,29 @@ const HeroSection = () => {
                   </div>
                   
                   {/* Контент */}
-                  <div className="h-[500px] bg-gradient-to-b from-white to-gray-50 p-6 space-y-6">
+                  <div className="h-[500px] bg-gradient-to-b from-white to-gray-50 p-6 space-y-6 relative">
                     {/* Хедер бота */}
                     <div className="text-center animate-fade-in-down" style={{animationDelay: '1s'}}>
                       <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full mx-auto mb-4 flex items-center justify-center shadow-elegant animate-glow">
                         <Users className="text-white" size={32} />
                       </div>
-                      <h3 className="font-display font-bold text-xl text-gray-900">Frontend Developer</h3>
-                      <p className="text-gray-600 font-medium">Тинькофф • Удаленно</p>
+                      <h3 className="font-display font-bold text-xl text-gray-900">{currentJob.title}</h3>
+                      <p className="text-gray-600 font-medium">{currentJob.company} • {currentJob.location}</p>
                     </div>
                     
-                    {/* Карточка вакансии */}
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 animate-scale-in" style={{animationDelay: '1.2s'}}>
+                    {/* Карточка вакансии с анимацией свайпа */}
+                    <div className={`bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 transition-all duration-500 ${
+                      swipeAnimation === 'like' ? 'transform translate-x-full rotate-12 opacity-0' :
+                      swipeAnimation === 'pass' ? 'transform -translate-x-full -rotate-12 opacity-0' :
+                      'transform translate-x-0 rotate-0 opacity-100'
+                    }`}>
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                          <span className="text-2xl font-display font-bold text-brand-primary">150,000 ₽</span>
-                          <span className="text-sm text-gray-500 font-medium">в месяц</span>
+                          <span className="text-2xl font-display font-bold text-brand-primary">{currentJob.salary}</span>
+                          <span className="text-sm text-gray-500 font-medium">{currentJob.period}</span>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                          {['React', 'TypeScript', 'Next.js'].map((tech) => (
+                          {currentJob.skills.map((tech) => (
                             <span key={tech} className="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs font-medium rounded-full border border-brand-primary/20">
                               {tech}
                             </span>
@@ -121,17 +202,65 @@ const HeroSection = () => {
                     </div>
                     
                     {/* Кнопки действий */}
-                    <div className="flex justify-center space-x-8 pt-8 animate-fade-in-up" style={{animationDelay: '1.4s'}}>
-                      <button className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shadow-lg border border-gray-200">
-                        <span className="text-2xl">❌</span>
+                    <div className="flex justify-between items-center px-4 pt-8">
+                      <button 
+                        onClick={prevJob}
+                        disabled={isAnimating}
+                        className="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-all duration-300 shadow-lg border border-gray-200 disabled:opacity-50"
+                      >
+                        <X className="text-red-500" size={24} />
                       </button>
-                      <button className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg animate-glow">
-                        <span className="text-2xl">💖</span>
+                      
+                      <div className="flex space-x-2">
+                        {jobs.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                              index === currentJobIndex ? 'bg-brand-primary' : 'bg-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      
+                      <button 
+                        onClick={nextJob}
+                        disabled={isAnimating}
+                        className="w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg animate-glow disabled:opacity-50"
+                      >
+                        <Heart className="text-white" size={24} />
                       </button>
                     </div>
+
+                    {/* Анимация лайка/дизлайка */}
+                    {swipeAnimation && (
+                      <div className={`absolute inset-0 flex items-center justify-center pointer-events-none ${
+                        swipeAnimation === 'like' ? 'text-green-500' : 'text-red-500'
+                      }`}>
+                        <div className="text-8xl animate-ping">
+                          {swipeAnimation === 'like' ? '💚' : '❌'}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
+              
+              {/* Навигационные стрелки */}
+              <button
+                onClick={prevJob}
+                disabled={isAnimating}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/90 transition-all duration-300 border border-white/30 disabled:opacity-50"
+              >
+                <ChevronLeft className="text-gray-700" size={20} />
+              </button>
+              
+              <button
+                onClick={nextJob}
+                disabled={isAnimating}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/90 transition-all duration-300 border border-white/30 disabled:opacity-50"
+              >
+                <ChevronRight className="text-gray-700" size={20} />
+              </button>
               
               {/* Плавающие элементы */}
               <div className="absolute -top-8 -right-8 w-16 h-16 glass rounded-2xl flex items-center justify-center animate-float border border-white/30" style={{animationDelay: '2s'}}>

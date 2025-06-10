@@ -1,10 +1,9 @@
-
 import { Calendar, DollarSign, Target, TrendingUp, Users, Zap, Building, Globe } from 'lucide-react';
 
 const Roadmap = () => {
   const roadmapData = [
     {
-      quarter: "Q1 2025",
+      quarter: "Q2 2025",
       status: "current",
       title: "MVP и Первые пользователи",
       items: [
@@ -17,7 +16,7 @@ const Roadmap = () => {
       investment: "Pre-seed: $100K"
     },
     {
-      quarter: "Q2 2025", 
+      quarter: "Q3 2025", 
       status: "planned",
       title: "Расширение функций",
       items: [
@@ -30,7 +29,7 @@ const Roadmap = () => {
       investment: "Seed: $500K"
     },
     {
-      quarter: "Q3 2025",
+      quarter: "Q4 2025",
       status: "planned", 
       title: "Масштабирование",
       items: [
@@ -43,7 +42,7 @@ const Roadmap = () => {
       investment: "Series A: $2M"
     },
     {
-      quarter: "Q4 2025",
+      quarter: "Q1 2026",
       status: "planned",
       title: "Международная экспансия", 
       items: [
@@ -103,7 +102,7 @@ const Roadmap = () => {
         <div className="grid md:grid-cols-4 gap-6 mb-16">
           {[
             { icon: DollarSign, label: 'Общий объем привлечения', value: '$12.6M', desc: 'За 4 раунда' },
-            { icon: Users, label: 'Целевая аудитория', value: '500K+', desc: 'К концу 2025' },
+            { icon: Users, label: 'Целевая аудитория', value: '500K+', desc: 'К началу 2026' },
             { icon: Building, label: 'Корпоративных клиентов', value: '1000+', desc: 'Компаний-партнеров' },
             { icon: Globe, label: 'География', value: '15+', desc: 'Стран и регионов' }
           ].map((metric, index) => (
