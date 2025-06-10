@@ -244,24 +244,8 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Навигационные стрелки */}
-              <button
-                onClick={prevJob}
-                disabled={isAnimating}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/90 transition-all duration-300 border border-white/30 disabled:opacity-50"
-              >
-                <ChevronLeft className="text-gray-700" size={20} />
-              </button>
-              
-              <button
-                onClick={nextJob}
-                disabled={isAnimating}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/90 transition-all duration-300 border border-white/30 disabled:opacity-50"
-              >
-                <ChevronRight className="text-gray-700" size={20} />
-              </button>
-              
+          
+          
               {/* Плавающие элементы */}
               <div className="absolute -top-8 -right-8 w-16 h-16 glass rounded-2xl flex items-center justify-center animate-float border border-white/30" style={{animationDelay: '2s'}}>
                 <Zap className="text-brand-primary" size={24} />
