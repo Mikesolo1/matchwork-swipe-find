@@ -1,5 +1,4 @@
-
-import { Bot, Heart, MessageCircle, CheckCircle } from 'lucide-react';
+import { Bot, Heart, MessageCircle, CheckCircle, Clock } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
