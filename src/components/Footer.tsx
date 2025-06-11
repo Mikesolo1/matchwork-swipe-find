@@ -1,18 +1,19 @@
+
 import { Mail, Phone, Instagram, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-900 text-white py-12 sm:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Логотип и описание */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-3">
               <Logo size="normal" />
-              <span className="text-xl font-display font-bold">Мэ́тчворк</span>
+              <span className="text-lg sm:text-xl font-display font-bold">Мэ́тчворк</span>
             </div>
-            <p className="text-gray-300 font-body leading-relaxed">
+            <p className="text-gray-300 font-body leading-relaxed text-sm sm:text-base">
               Революционный способ поиска работы через Telegram. Свайпайте вакансии и получайте предложения мгновенно.
             </p>
             <div className="flex space-x-4">
@@ -27,8 +28,8 @@ const Footer = () => {
           
           {/* Продукт */}
           <div className="space-y-4">
-            <h4 className="text-lg font-display font-bold">Продукт</h4>
-            <ul className="space-y-2 font-body">
+            <h4 className="text-base sm:text-lg font-display font-bold">Продукт</h4>
+            <ul className="space-y-2 font-body text-sm sm:text-base">
               <li><a href="#how-it-works" className="text-gray-300 hover:text-brand-primary transition-colors">Как работает</a></li>
               <li><a href="#benefits" className="text-gray-300 hover:text-brand-primary transition-colors">Преимущества</a></li>
               <li><a href="#demo" className="text-gray-300 hover:text-brand-primary transition-colors">Демо</a></li>
@@ -38,8 +39,8 @@ const Footer = () => {
           
           {/* Для бизнеса */}
           <div className="space-y-4">
-            <h4 className="text-lg font-display font-bold">Для работодателей</h4>
-            <ul className="space-y-2 font-body">
+            <h4 className="text-base sm:text-lg font-display font-bold">Для работодателей</h4>
+            <ul className="space-y-2 font-body text-sm sm:text-base">
               <li><a href="https://t.me/matchwork_business" className="text-gray-300 hover:text-brand-primary transition-colors">Разместить вакансию</a></li>
               <li><a href="mailto:business@matchwork.ru" className="text-gray-300 hover:text-brand-primary transition-colors">Корпоративные планы</a></li>
               <li><a href="mailto:api@matchwork.ru" className="text-gray-300 hover:text-brand-primary transition-colors">API для интеграции</a></li>
@@ -49,8 +50,8 @@ const Footer = () => {
           
           {/* Контакты */}
           <div className="space-y-4">
-            <h4 className="text-lg font-display font-bold">Контакты</h4>
-            <div className="space-y-3 font-body">
+            <h4 className="text-base sm:text-lg font-display font-bold">Контакты</h4>
+            <div className="space-y-3 font-body text-sm sm:text-base">
               <a href="mailto:hello@matchwork.ru" className="flex items-center space-x-2 text-gray-300 hover:text-brand-primary transition-colors">
                 <Mail size={16} />
                 <span>hello@matchwork.ru</span>
@@ -70,13 +71,13 @@ const Footer = () => {
         </div>
         
         {/* Нижняя часть */}
-        <div className="border-t border-gray-700 mt-12 pt-8">
+        <div className="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 font-body text-sm">
+            <div className="text-gray-400 font-body text-sm text-center md:text-left">
               © 2025 Мэ́тчворк. Все права защищены.
             </div>
             
-            <div className="flex space-x-6 text-sm font-body">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm font-body text-center">
               <a href="/privacy" className="text-gray-400 hover:text-brand-primary transition-colors">
                 Политика конфиденциальности
               </a>
@@ -87,7 +88,7 @@ const Footer = () => {
           </div>
           
           <div className="mt-4 text-center">
-            <p className="text-xs text-gray-500 font-body">
+            <p className="text-xs text-gray-500 font-body px-4">
               Планируется выпуск web-версии и мобильных приложений для iOS/Android в 2025 году
             </p>
           </div>

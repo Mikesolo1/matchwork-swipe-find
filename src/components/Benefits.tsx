@@ -61,54 +61,54 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="py-32 bg-gradient-to-b from-brand-neutral-50 to-white relative overflow-hidden">
+    <section id="benefits" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-brand-neutral-50 to-white relative overflow-hidden">
       {/* Декоративные элементы */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent rounded-full blur-3xl animate-morphing"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-brand-secondary/15 to-transparent rounded-full blur-2xl animate-float"></div>
+      <div className="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-br from-brand-primary/10 to-transparent rounded-full blur-3xl animate-morphing"></div>
+      <div className="absolute bottom-0 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-tl from-brand-secondary/15 to-transparent rounded-full blur-2xl animate-float"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Заголовок */}
-        <div className="text-center mb-20 animate-fade-in-up">
-          <div className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-fade-in-up">
+          <div className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-4 sm:mb-6">
             <Sparkles className="text-brand-primary" size={16} />
             <span className="text-sm font-medium text-brand-neutral-600">Почему выбирают нас</span>
           </div>
           
-          <h2 className="text-display-lg font-display font-bold text-brand-neutral-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-neutral-800 mb-4 sm:mb-6">
             Революционные{' '}
             <span className="text-gradient">преимущества</span>
           </h2>
           
-          <p className="text-xl text-brand-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-brand-neutral-600 max-w-3xl mx-auto leading-relaxed px-4">
             Мы объединили лучшее из мира знакомств и рекрутинга, создав идеальную экосистему для поиска работы
           </p>
         </div>
 
         {/* Преимущества */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
               className="group relative animate-fade-in-up"
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="relative glass rounded-3xl p-8 hover:shadow-hover-lift transform hover:-translate-y-2 transition-all duration-500 group-hover:scale-[1.02] h-full">
+              <div className="relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:shadow-hover-lift transform hover:-translate-y-2 transition-all duration-500 group-hover:scale-[1.02] h-full">
                 {/* Статистика в углу */}
                 <div className="absolute top-4 right-4 text-right">
-                  <div className="text-2xl font-display font-bold text-brand-primary">{benefit.stat}</div>
+                  <div className="text-xl sm:text-2xl font-display font-bold text-brand-primary">{benefit.stat}</div>
                   <div className="text-xs text-brand-neutral-500 font-medium">{benefit.statLabel}</div>
                 </div>
                 
                 {/* Иконка с градиентом */}
-                <div className="mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-2xl flex items-center justify-center shadow-elegant group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <benefit.icon className="text-white" size={24} />
+                <div className="mb-4 sm:mb-6">
+                  <div className={`w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br ${benefit.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-elegant group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                    <benefit.icon className="text-white" size={20} />
                   </div>
                 </div>
                 
                 {/* Контент */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-display font-bold text-brand-neutral-800">
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-brand-neutral-800">
                     {benefit.title}
                   </h3>
                   
@@ -128,25 +128,25 @@ const Benefits = () => {
         </div>
         
         {/* Расширенная статистика */}
-        <div className="glass rounded-3xl p-8 animate-scale-in" style={{animationDelay: '0.6s'}}>
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-display font-bold text-brand-neutral-800 mb-2">
+        <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 animate-scale-in" style={{animationDelay: '0.6s'}}>
+          <div className="text-center mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-brand-neutral-800 mb-2">
               Впечатляющие результаты
             </h3>
             <p className="text-brand-neutral-600">Данные за последние 30 дней</p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
                 className="text-center group animate-fade-in-up"
                 style={{animationDelay: `${0.8 + index * 0.1}s`}}
               >
-                <div className="text-4xl font-display font-bold text-brand-primary mb-2 group-hover:scale-110 transition-transform">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-brand-primary mb-2 group-hover:scale-110 transition-transform">
                   {stat.value}
                 </div>
-                <div className="text-brand-neutral-600 text-sm mb-2 font-medium">
+                <div className="text-brand-neutral-600 text-xs sm:text-sm mb-2 font-medium px-2">
                   {stat.label}
                 </div>
                 <div className="inline-flex items-center text-green-600 text-xs font-semibold bg-green-50 px-2 py-1 rounded-full">
