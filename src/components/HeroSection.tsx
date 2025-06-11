@@ -87,65 +87,65 @@ const HeroSection = () => {
         <div className="absolute -bottom-40 -left-40 w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-tr from-brand-secondary/8 to-brand-accent/5 rounded-full animate-pulse blur-2xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-10 sm:py-20 relative z-10">
+      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Левая колонка */}
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
             {/* Бейдж */}
             <div className="inline-flex items-center space-x-2 glass px-3 sm:px-4 py-2 rounded-full animate-fade-in-down">
               <Sparkles className="text-brand-primary" size={16} />
               <span className="text-sm font-medium text-gray-800">Революция в HR-tech</span>
             </div>
             
-            {/* Заголовок */}
-            <div className="space-y-4 sm:space-y-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-gray-900">
+            {/* Заголовок с более плавной анимацией */}
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight text-gray-900 animate-fade-in-up" style={{animationDelay: '0.1s', animationDuration: '0.8s', animationFillMode: 'both'}}>
                 Найдите работу за{' '}
                 <span className="text-gradient bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent animate-gradient-shift bg-300% bg-clip-text">
                   5 минут
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0 font-body">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0 font-body animate-fade-in-up" style={{animationDelay: '0.3s', animationDuration: '0.8s', animationFillMode: 'both'}}>
                 Революционная платформа для поиска работы в Telegram. Свайпайте вакансии, получайте матчи от HR, находите dream job.
               </p>
             </div>
             
             {/* Метрики */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 py-4 sm:py-6 animate-scale-in" style={{animationDelay: '0.4s'}}>
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 py-3 sm:py-4 lg:py-6 animate-scale-in" style={{animationDelay: '0.5s'}}>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-display font-bold text-brand-primary">2,500+</div>
+                <div className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-brand-primary">2,500+</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-medium">Кандидатов</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-display font-bold text-brand-primary">500+</div>
+                <div className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-brand-primary">500+</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-medium">Компаний</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-display font-bold text-brand-primary">98%</div>
+                <div className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-brand-primary">98%</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-medium">Матчей</div>
               </div>
             </div>
             
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-fade-in-up" style={{animationDelay: '0.7s'}}>
               <a 
                 href="https://t.me/workswipematch_bot/work"
-                className="group relative inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg shadow-elegant hover:shadow-hover-lift transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex items-center justify-center space-x-2 sm:space-x-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base lg:text-lg shadow-elegant hover:shadow-hover-lift transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10">Начать поиск</span>
-                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
               
-              <button className="group inline-flex items-center justify-center space-x-2 glass border border-gray-200 text-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg hover:bg-white/90 transition-all duration-300">
-                <TrendingUp size={20} className="group-hover:scale-110 transition-transform" />
+              <button className="group inline-flex items-center justify-center space-x-2 glass border border-gray-200 text-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base lg:text-lg hover:bg-white/90 transition-all duration-300">
+                <TrendingUp size={18} className="group-hover:scale-110 transition-transform" />
                 <span>Как это работает</span>
               </button>
             </div>
             
             {/* Социальное доказательство */}
-            <div className="flex items-center justify-center lg:justify-start space-x-4 text-sm pt-4 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+            <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4 text-sm pt-3 sm:pt-4 animate-fade-in-up" style={{animationDelay: '0.9s'}}>
               <div className="flex -space-x-2">
                 {[1,2,3].map((i) => (
                   <div key={i} className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full border-2 border-white shadow-sm"></div>
@@ -158,7 +158,7 @@ const HeroSection = () => {
           </div>
           
           {/* Правая колонка - Интерактивная карусель вакансий */}
-          <div className="relative animate-slide-in-right order-first lg:order-last">
+          <div className="relative animate-slide-in-right order-first lg:order-last mt-8 lg:mt-0">
             <div className="relative mx-auto max-w-xs sm:max-w-sm perspective-1000">
               {/* Главный мокап телефона */}
               <div className="relative glass border border-white/30 rounded-[2rem] sm:rounded-[2.5rem] p-1 shadow-2xl hover:shadow-hover-lift transform hover:-translate-y-2 transition-all duration-500 animate-float">
