@@ -16,7 +16,7 @@ const Logo = ({ className = "", size = "normal" }: { className?: string; size?: 
 
   return (
     <div className={`relative ${sizes[size]} ${className}`}>
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-pink to-brand-pink-light rounded-xl shadow-lg animate-pulse-pink">
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl shadow-lg">
         <Heart 
           size={iconSizes[size]} 
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white fill-current"
