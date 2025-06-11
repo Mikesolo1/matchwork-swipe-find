@@ -1,4 +1,3 @@
-
 import { Mail, Phone, Instagram, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 
@@ -33,7 +32,7 @@ const Footer = () => {
               <li><a href="#how-it-works" className="text-gray-300 hover:text-brand-primary transition-colors">Как работает</a></li>
               <li><a href="#benefits" className="text-gray-300 hover:text-brand-primary transition-colors">Преимущества</a></li>
               <li><a href="#demo" className="text-gray-300 hover:text-brand-primary transition-colors">Демо</a></li>
-              <li><a href="https://t.me/matchwork_bot" className="text-gray-300 hover:text-brand-primary transition-colors">Telegram бот</a></li>
+              <li><a href="https://t.me/workswipematch_bot/work" className="text-gray-300 hover:text-brand-primary transition-colors">Telegram бот</a></li>
             </ul>
           </div>
           

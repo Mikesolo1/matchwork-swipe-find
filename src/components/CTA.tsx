@@ -1,4 +1,3 @@
-
 import { ArrowRight, Target, Clock, Users } from 'lucide-react';
 
 const CTA = () => {
@@ -78,7 +77,7 @@ const CTA = () => {
           {/* CTA кнопки */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style={{animationDelay: '0.6s'}}>
             <a 
-              href="https://t.me/matchwork_bot"
+              href="https://t.me/workswipematch_bot/work"
               className="group relative inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-elegant hover:shadow-hover-lift transform hover:-translate-y-1 transition-all duration-300 overflow-hidden min-w-[280px]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

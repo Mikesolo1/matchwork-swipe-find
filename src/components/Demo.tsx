@@ -75,7 +75,7 @@ const Demo = () => {
           {/* CTA под демо */}
           <div className="text-center mt-12">
             <a 
-              href="https://t.me/matchwork_bot"
+              href="https://t.me/workswipematch_bot/work"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-pink to-brand-pink-light text-white px-8 py-4 rounded-full font-open-sans font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-pulse-pink"
             >
               <span>Попробовать прямо сейчас</span>
