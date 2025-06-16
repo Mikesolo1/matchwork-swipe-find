@@ -1,95 +1,127 @@
 
-import { Users, Briefcase, Clock, CheckCircle, ArrowRight, Zap, Eye, Play, Star, MapPin, Calendar } from 'lucide-react';
+import { Users, Briefcase, Clock, CheckCircle, ArrowRight, Zap, Eye, Play, Star, MapPin, Calendar, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
 const VideoSection = () => {
   const [activeTab, setActiveTab] = useState<'candidates' | 'employers'>('candidates');
 
-  const CandidateVideoMockup = () => (
-    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300">
-      {/* Video area */}
-      <div className="aspect-video bg-gradient-to-br from-brand-primary/10 to-brand-secondary/5 relative flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-transparent"></div>
-        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
-          <Play className="text-brand-primary ml-1" size={24} />
-        </div>
-        {/* Duration badge */}
-        <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
-          1:30
-        </div>
-      </div>
-      
-      {/* Profile info */}
-      <div className="p-4">
-        <div className="flex items-start space-x-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center text-white font-bold">
-            АМ
-          </div>
-          <div className="flex-1">
-            <h4 className="font-semibold text-gray-900">Анна Михайлова</h4>
-            <p className="text-sm text-brand-primary font-medium">Frontend разработчик</p>
-            <div className="flex items-center space-x-2 mt-1">
-              <MapPin size={12} className="text-gray-400" />
-              <span className="text-xs text-gray-600">Москва</span>
-              <div className="flex items-center space-x-1">
-                <Star size={12} className="text-yellow-400 fill-current" />
-                <span className="text-xs text-gray-600">4.9</span>
-              </div>
+  const CandidateCard = () => (
+    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300 p-6">
+      <div className="flex items-start space-x-4">
+        {/* Круглая видео визитка */}
+        <div className="relative flex-shrink-0">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary overflow-hidden relative group/video cursor-pointer">
+            {/* Аватар фон */}
+            <div className="w-full h-full bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 flex items-center justify-center">
+              <span className="text-white font-bold text-lg">АМ</span>
+            </div>
+            {/* Play кнопка при ховере */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/video:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+              <Play className="text-white" size={20} fill="white" />
+            </div>
+            {/* Индикатор видео */}
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-brand-primary rounded-full border-2 border-white flex items-center justify-center">
+              <Play className="text-white" size={10} fill="white" />
             </div>
           </div>
+          {/* Онлайн статус */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
         </div>
         
-        <div className="mt-3 flex flex-wrap gap-1">
-          {['React', 'TypeScript', 'Node.js'].map((skill) => (
-            <span key={skill} className="px-2 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full">
-              {skill}
-            </span>
-          ))}
+        {/* Информация о кандидате */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-start justify-between">
+            <div>
+              <h4 className="font-semibold text-gray-900 truncate">Анна Михайлова</h4>
+              <p className="text-sm text-brand-primary font-medium">Frontend разработчик</p>
+              <div className="flex items-center space-x-3 mt-2">
+                <div className="flex items-center space-x-1">
+                  <MapPin size={12} className="text-gray-400" />
+                  <span className="text-xs text-gray-600">Москва</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Star size={12} className="text-yellow-400 fill-current" />
+                  <span className="text-xs text-gray-600">4.9</span>
+                </div>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-sm font-semibold text-gray-900">150k - 200k ₽</div>
+              <div className="text-xs text-gray-500">Ожидания</div>
+            </div>
+          </div>
+          
+          <div className="mt-3 flex flex-wrap gap-1">
+            {['React', 'TypeScript', 'Node.js'].map((skill) => (
+              <span key={skill} className="px-2 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 
-  const EmployerVideoMockup = () => (
-    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300">
-      {/* Video area */}
-      <div className="aspect-video bg-gradient-to-br from-brand-secondary/10 to-brand-accent/5 relative flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-transparent"></div>
-        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
-          <Play className="text-brand-secondary ml-1" size={24} />
-        </div>
-        {/* Duration badge */}
-        <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
-          1:20
-        </div>
-      </div>
-      
-      {/* Company info */}
-      <div className="p-4">
-        <div className="flex items-start space-x-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-brand-secondary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-sm">
-            IT
-          </div>
-          <div className="flex-1">
-            <h4 className="font-semibold text-gray-900">IT Solutions</h4>
-            <p className="text-sm text-brand-secondary font-medium">Senior React Developer</p>
-            <div className="flex items-center space-x-2 mt-1">
-              <MapPin size={12} className="text-gray-400" />
-              <span className="text-xs text-gray-600">Санкт-Петербург</span>
-              <Calendar size={12} className="text-gray-400" />
-              <span className="text-xs text-gray-600">Удаленно</span>
+  const EmployerCard = () => (
+    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300 p-6">
+      <div className="flex items-start space-x-4">
+        {/* Круглая видео визитка компании */}
+        <div className="relative flex-shrink-0">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-secondary to-brand-accent overflow-hidden relative group/video cursor-pointer">
+            {/* Логотип компании */}
+            <div className="w-full h-full bg-gradient-to-br from-brand-secondary/20 to-brand-accent/10 flex items-center justify-center">
+              <span className="text-white font-bold text-sm">IT</span>
+            </div>
+            {/* Play кнопка при ховере */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/video:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+              <Play className="text-white" size={20} fill="white" />
+            </div>
+            {/* Индикатор видео */}
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-brand-secondary rounded-full border-2 border-white flex items-center justify-center">
+              <Play className="text-white" size={10} fill="white" />
             </div>
           </div>
+          {/* Статус компании */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
         </div>
         
-        <div className="mt-3 flex items-center justify-between">
-          <div className="flex flex-wrap gap-1">
-            <span className="px-2 py-1 bg-brand-secondary/10 text-brand-secondary text-xs rounded-full">
-              200k - 300k ₽
-            </span>
+        {/* Информация о вакансии */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-start justify-between">
+            <div>
+              <h4 className="font-semibold text-gray-900 truncate">IT Solutions</h4>
+              <p className="text-sm text-brand-secondary font-medium">Senior React Developer</p>
+              <div className="flex items-center space-x-3 mt-2">
+                <div className="flex items-center space-x-1">
+                  <MapPin size={12} className="text-gray-400" />
+                  <span className="text-xs text-gray-600">СПб</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Calendar size={12} className="text-gray-400" />
+                  <span className="text-xs text-gray-600">Удаленно</span>
+                </div>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-sm font-semibold text-gray-900">200k - 300k ₽</div>
+              <div className="text-xs text-gray-500">+ бонусы</div>
+            </div>
           </div>
-          <div className="text-xs text-gray-600">
-            +50 откликов
+          
+          <div className="mt-3 flex items-center justify-between">
+            <div className="flex flex-wrap gap-1">
+              <span className="px-2 py-1 bg-brand-secondary/10 text-brand-secondary text-xs rounded-full">
+                React
+              </span>
+              <span className="px-2 py-1 bg-brand-secondary/10 text-brand-secondary text-xs rounded-full">
+                Senior
+              </span>
+            </div>
+            <div className="flex items-center space-x-1 text-xs text-gray-600">
+              <TrendingUp size={12} className="text-green-500" />
+              <span>+50 откликов</span>
+            </div>
           </div>
         </div>
       </div>
@@ -114,19 +146,18 @@ const VideoSection = () => {
 
           {/* Title */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-4 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-            Видео визитка за{' '}
+            Круглая видео визитка{' '}
             <span className="text-gradient bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text">
-              90 секунд
+              как в Telegram
             </span>
           </h2>
 
           <p className="text-base lg:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            Создайте персональное видео до 1:30, которое покажет вас с лучшей стороны. 
-            Знакомьтесь мгновенно, без долгих собеседований!
+            Персональное видео прямо в карточке профиля. Знакомьтесь мгновенно одним кликом!
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Tab switcher */}
           <div className="flex bg-white/90 backdrop-blur-sm rounded-xl p-1 shadow-lg border border-gray-100 mb-8 animate-scale-in" style={{animationDelay: '0.3s'}}>
             <button
@@ -138,7 +169,7 @@ const VideoSection = () => {
               }`}
             >
               <Users size={16} />
-              <span>Для соискателей</span>
+              <span>Соискатели</span>
             </button>
             <button
               onClick={() => setActiveTab('employers')}
@@ -149,7 +180,7 @@ const VideoSection = () => {
               }`}
             >
               <Briefcase size={16} />
-              <span>Для работодателей</span>
+              <span>Работодатели</span>
             </button>
           </div>
 
@@ -158,20 +189,20 @@ const VideoSection = () => {
             {/* Left side - Benefits */}
             <div className="space-y-6 animate-slide-in-right" style={{animationDelay: '0.4s'}}>
               <h3 className="font-display font-bold text-xl text-gray-900">
-                {activeTab === 'candidates' ? 'Покажите себя с лучшей стороны' : 'Привлекайте лучших кандидатов'}
+                {activeTab === 'candidates' ? 'Покажите себя одним кликом' : 'Привлекайте лучших кандидатов'}
               </h3>
               
               <div className="space-y-3">
                 {(activeTab === 'candidates' ? [
-                  'Расскажите о своем опыте и навыках',
-                  'Покажите вашу личность и мотивацию',
-                  'Продемонстрируйте портфолио или проекты',
-                  'Выделитесь среди других кандидатов'
+                  'Круглое видео прямо в профиле',
+                  'Мгновенное знакомство с личностью',
+                  'Выделяйтесь среди резюме',
+                  'Показывайте навыки в действии'
                 ] : [
-                  'Познакомьте с командой и культурой',
-                  'Покажите офис и рабочую атмосферу',
-                  'Расскажите о проектах и возможностях',
-                  'Объясните преимущества работы у вас'
+                  'Видео-презентация вакансии', 
+                  'Покажите команду и офис',
+                  'Расскажите о культуре компании',
+                  'Привлекайте качественных кандидатов'
                 ]).map((item, index) => (
                   <div key={index} className="flex items-start space-x-3 group">
                     <CheckCircle className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform`} size={16} />
@@ -181,39 +212,45 @@ const VideoSection = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-3 mt-6">
+              <div className="grid grid-cols-3 gap-3 mt-6">
                 <div className="glass rounded-xl p-4 text-center group hover:shadow-hover-lift transition-all duration-300">
                   <Clock className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} mx-auto mb-2 group-hover:scale-110 transition-transform`} size={20} />
-                  <div className="font-bold text-lg text-gray-900">1:30</div>
+                  <div className="font-bold text-lg text-gray-900">60с</div>
                   <div className="text-xs text-gray-600">Длительность</div>
                 </div>
                 
                 <div className="glass rounded-xl p-4 text-center group hover:shadow-hover-lift transition-all duration-300">
                   <Eye className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} mx-auto mb-2 group-hover:scale-110 transition-transform`} size={20} />
-                  <div className="font-bold text-lg text-gray-900">100%</div>
-                  <div className="text-xs text-gray-600">Внимание</div>
+                  <div className="font-bold text-lg text-gray-900">+300%</div>
+                  <div className="text-xs text-gray-600">Просмотры</div>
+                </div>
+
+                <div className="glass rounded-xl p-4 text-center group hover:shadow-hover-lift transition-all duration-300">
+                  <TrendingUp className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} mx-auto mb-2 group-hover:scale-110 transition-transform`} size={20} />
+                  <div className="font-bold text-lg text-gray-900">+150%</div>
+                  <div className="text-xs text-gray-600">Отклик</div>
                 </div>
               </div>
             </div>
 
-            {/* Right side - Video mockup */}
+            {/* Right side - Card examples */}
             <div className="animate-slide-in-right" style={{animationDelay: '0.5s'}}>
               <div className="space-y-4">
                 <h4 className="font-semibold text-gray-900 text-center mb-4">
-                  {activeTab === 'candidates' ? 'Пример видео визитки соискателя' : 'Пример видео визитки вакансии'}
+                  {activeTab === 'candidates' ? 'Карточка кандидата с видео' : 'Карточка вакансии с видео'}
                 </h4>
                 
-                {activeTab === 'candidates' ? <CandidateVideoMockup /> : <EmployerVideoMockup />}
+                {activeTab === 'candidates' ? <CandidateCard /> : <EmployerCard />}
                 
                 <div className={`p-4 rounded-xl border ${activeTab === 'candidates' ? 'bg-brand-primary/10 border-brand-primary/20' : 'bg-brand-secondary/10 border-brand-secondary/20'} transition-all duration-300`}>
                   <div className="flex items-center space-x-3">
                     <Zap className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'}`} size={20} />
                     <div>
                       <p className="font-semibold text-gray-900 text-sm">
-                        {activeTab === 'candidates' ? 'Быстрое знакомство' : 'Эффективный отбор'}
+                        {activeTab === 'candidates' ? 'Мгновенное знакомство' : 'Быстрый отбор'}
                       </p>
                       <p className="text-xs text-gray-600">
-                        {activeTab === 'candidates' ? 'Работодатели узнают вас за минуту' : 'Найдите идеальных кандидатов'}
+                        Кликните на круглое видео для просмотра
                       </p>
                     </div>
                   </div>
@@ -232,7 +269,7 @@ const VideoSection = () => {
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <p className="text-xs text-gray-600 mt-3">
-              Запись займет всего несколько минут
+              Запись займет всего минуту
             </p>
           </div>
         </div>
