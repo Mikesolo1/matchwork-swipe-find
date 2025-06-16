@@ -6,54 +6,58 @@ const VideoSection = () => {
   const [activeTab, setActiveTab] = useState<'candidates' | 'employers'>('candidates');
 
   const CandidateCard = () => (
-    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300 p-6">
-      <div className="flex items-start space-x-4">
-        {/* Круглая видео визитка */}
+    <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-2xl transition-all duration-300 p-6 backdrop-blur-sm">
+      <div className="flex items-start space-x-5">
+        {/* Улучшенная круглая видео визитка */}
         <div className="relative flex-shrink-0">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary overflow-hidden relative group/video cursor-pointer">
-            {/* Аватар фон */}
-            <div className="w-full h-full bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">АМ</span>
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent overflow-hidden relative group/video cursor-pointer border-4 border-white shadow-lg hover:shadow-xl transition-all duration-300">
+            {/* Аватар с градиентом */}
+            <div className="w-full h-full bg-gradient-to-br from-brand-primary/90 to-brand-secondary/80 flex items-center justify-center relative overflow-hidden">
+              <span className="text-white font-bold text-xl z-10">АМ</span>
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/video:translate-x-full transition-transform duration-1000"></div>
             </div>
             {/* Play кнопка при ховере */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/video:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-              <Play className="text-white" size={20} fill="white" />
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover/video:scale-110 transition-transform duration-200">
+                <Play className="text-brand-primary ml-0.5" size={16} fill="currentColor" />
+              </div>
             </div>
-            {/* Индикатор видео */}
-            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-brand-primary rounded-full border-2 border-white flex items-center justify-center">
-              <Play className="text-white" size={10} fill="white" />
+            {/* Улучшенный индикатор видео */}
+            <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-gradient-to-r from-green-400 to-green-500 rounded-full border-3 border-white flex items-center justify-center shadow-lg">
+              <Play className="text-white ml-0.5" size={10} fill="white" />
             </div>
           </div>
-          {/* Онлайн статус */}
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+          {/* Пульсирующий онлайн статус */}
+          <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white animate-pulse shadow-lg"></div>
         </div>
         
         {/* Информация о кандидате */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between">
-            <div>
-              <h4 className="font-semibold text-gray-900 truncate">Анна Михайлова</h4>
-              <p className="text-sm text-brand-primary font-medium">Frontend разработчик</p>
-              <div className="flex items-center space-x-3 mt-2">
-                <div className="flex items-center space-x-1">
-                  <MapPin size={12} className="text-gray-400" />
-                  <span className="text-xs text-gray-600">Москва</span>
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex-1">
+              <h4 className="font-bold text-lg text-gray-900 truncate mb-1">Анна Михайлова</h4>
+              <p className="text-brand-primary font-semibold text-sm mb-2">Frontend разработчик</p>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-1.5">
+                  <MapPin size={14} className="text-gray-500" />
+                  <span className="text-sm text-gray-600">Москва</span>
                 </div>
                 <div className="flex items-center space-x-1">
-                  <Star size={12} className="text-yellow-400 fill-current" />
-                  <span className="text-xs text-gray-600">4.9</span>
+                  <Star size={14} className="text-yellow-400 fill-current" />
+                  <span className="text-sm text-gray-700 font-medium">4.9</span>
                 </div>
               </div>
             </div>
             <div className="text-right">
-              <div className="text-sm font-semibold text-gray-900">150k - 200k ₽</div>
-              <div className="text-xs text-gray-500">Ожидания</div>
+              <div className="text-lg font-bold text-gray-900">150k - 200k ₽</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide">Ожидания</div>
             </div>
           </div>
           
-          <div className="mt-3 flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-2">
             {['React', 'TypeScript', 'Node.js'].map((skill) => (
-              <span key={skill} className="px-2 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full">
+              <span key={skill} className="px-3 py-1.5 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 text-brand-primary text-xs font-medium rounded-full border border-brand-primary/20 hover:bg-brand-primary/20 transition-colors">
                 {skill}
               </span>
             ))}
@@ -64,63 +68,67 @@ const VideoSection = () => {
   );
 
   const EmployerCard = () => (
-    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300 p-6">
-      <div className="flex items-start space-x-4">
-        {/* Круглая видео визитка компании */}
+    <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-2xl transition-all duration-300 p-6 backdrop-blur-sm">
+      <div className="flex items-start space-x-5">
+        {/* Улучшенная круглая видео визитка компании */}
         <div className="relative flex-shrink-0">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-secondary to-brand-accent overflow-hidden relative group/video cursor-pointer">
-            {/* Логотип компании */}
-            <div className="w-full h-full bg-gradient-to-br from-brand-secondary/20 to-brand-accent/10 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">IT</span>
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-secondary via-brand-accent to-brand-primary overflow-hidden relative group/video cursor-pointer border-4 border-white shadow-lg hover:shadow-xl transition-all duration-300">
+            {/* Логотип компании с градиентом */}
+            <div className="w-full h-full bg-gradient-to-br from-brand-secondary/90 to-brand-accent/80 flex items-center justify-center relative overflow-hidden">
+              <span className="text-white font-bold text-lg z-10">IT</span>
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/video:translate-x-full transition-transform duration-1000"></div>
             </div>
             {/* Play кнопка при ховере */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/video:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-              <Play className="text-white" size={20} fill="white" />
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover/video:scale-110 transition-transform duration-200">
+                <Play className="text-brand-secondary ml-0.5" size={16} fill="currentColor" />
+              </div>
             </div>
-            {/* Индикатор видео */}
-            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-brand-secondary rounded-full border-2 border-white flex items-center justify-center">
-              <Play className="text-white" size={10} fill="white" />
+            {/* Улучшенный индикатор видео */}
+            <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full border-3 border-white flex items-center justify-center shadow-lg">
+              <Play className="text-white ml-0.5" size={10} fill="white" />
             </div>
           </div>
           {/* Статус компании */}
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div className="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 rounded-full border-2 border-white animate-pulse shadow-lg"></div>
         </div>
         
         {/* Информация о вакансии */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between">
-            <div>
-              <h4 className="font-semibold text-gray-900 truncate">IT Solutions</h4>
-              <p className="text-sm text-brand-secondary font-medium">Senior React Developer</p>
-              <div className="flex items-center space-x-3 mt-2">
-                <div className="flex items-center space-x-1">
-                  <MapPin size={12} className="text-gray-400" />
-                  <span className="text-xs text-gray-600">СПб</span>
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex-1">
+              <h4 className="font-bold text-lg text-gray-900 truncate mb-1">IT Solutions</h4>
+              <p className="text-brand-secondary font-semibold text-sm mb-2">Senior React Developer</p>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-1.5">
+                  <MapPin size={14} className="text-gray-500" />
+                  <span className="text-sm text-gray-600">СПб</span>
                 </div>
-                <div className="flex items-center space-x-1">
-                  <Calendar size={12} className="text-gray-400" />
-                  <span className="text-xs text-gray-600">Удаленно</span>
+                <div className="flex items-center space-x-1.5">
+                  <Calendar size={14} className="text-gray-500" />
+                  <span className="text-sm text-gray-600">Удаленно</span>
                 </div>
               </div>
             </div>
             <div className="text-right">
-              <div className="text-sm font-semibold text-gray-900">200k - 300k ₽</div>
-              <div className="text-xs text-gray-500">+ бонусы</div>
+              <div className="text-lg font-bold text-gray-900">200k - 300k ₽</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide">+ бонусы</div>
             </div>
           </div>
           
-          <div className="mt-3 flex items-center justify-between">
-            <div className="flex flex-wrap gap-1">
-              <span className="px-2 py-1 bg-brand-secondary/10 text-brand-secondary text-xs rounded-full">
+          <div className="flex items-center justify-between">
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1.5 bg-gradient-to-r from-brand-secondary/10 to-brand-accent/10 text-brand-secondary text-xs font-medium rounded-full border border-brand-secondary/20 hover:bg-brand-secondary/20 transition-colors">
                 React
               </span>
-              <span className="px-2 py-1 bg-brand-secondary/10 text-brand-secondary text-xs rounded-full">
+              <span className="px-3 py-1.5 bg-gradient-to-r from-brand-secondary/10 to-brand-accent/10 text-brand-secondary text-xs font-medium rounded-full border border-brand-secondary/20 hover:bg-brand-secondary/20 transition-colors">
                 Senior
               </span>
             </div>
-            <div className="flex items-center space-x-1 text-xs text-gray-600">
-              <TrendingUp size={12} className="text-green-500" />
-              <span>+50 откликов</span>
+            <div className="flex items-center space-x-1.5 text-sm text-gray-600 bg-green-50 px-2 py-1 rounded-full">
+              <TrendingUp size={14} className="text-green-500" />
+              <span className="font-medium">+50 откликов</span>
             </div>
           </div>
         </div>
@@ -215,7 +223,7 @@ const VideoSection = () => {
               <div className="grid grid-cols-3 gap-3 mt-6">
                 <div className="glass rounded-xl p-4 text-center group hover:shadow-hover-lift transition-all duration-300">
                   <Clock className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} mx-auto mb-2 group-hover:scale-110 transition-transform`} size={20} />
-                  <div className="font-bold text-lg text-gray-900">60с</div>
+                  <div className="font-bold text-lg text-gray-900">90с</div>
                   <div className="text-xs text-gray-600">Длительность</div>
                 </div>
                 
