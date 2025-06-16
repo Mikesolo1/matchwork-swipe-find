@@ -1,9 +1,100 @@
 
-import { Users, Briefcase, Clock, CheckCircle, ArrowRight, Zap, Eye } from 'lucide-react';
+import { Users, Briefcase, Clock, CheckCircle, ArrowRight, Zap, Eye, Play, Star, MapPin, Calendar } from 'lucide-react';
 import { useState } from 'react';
 
 const VideoSection = () => {
   const [activeTab, setActiveTab] = useState<'candidates' | 'employers'>('candidates');
+
+  const CandidateVideoMockup = () => (
+    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300">
+      {/* Video area */}
+      <div className="aspect-video bg-gradient-to-br from-brand-primary/10 to-brand-secondary/5 relative flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-transparent"></div>
+        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+          <Play className="text-brand-primary ml-1" size={24} />
+        </div>
+        {/* Duration badge */}
+        <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
+          1:30
+        </div>
+      </div>
+      
+      {/* Profile info */}
+      <div className="p-4">
+        <div className="flex items-start space-x-3">
+          <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center text-white font-bold">
+            АМ
+          </div>
+          <div className="flex-1">
+            <h4 className="font-semibold text-gray-900">Анна Михайлова</h4>
+            <p className="text-sm text-brand-primary font-medium">Frontend разработчик</p>
+            <div className="flex items-center space-x-2 mt-1">
+              <MapPin size={12} className="text-gray-400" />
+              <span className="text-xs text-gray-600">Москва</span>
+              <div className="flex items-center space-x-1">
+                <Star size={12} className="text-yellow-400 fill-current" />
+                <span className="text-xs text-gray-600">4.9</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-3 flex flex-wrap gap-1">
+          {['React', 'TypeScript', 'Node.js'].map((skill) => (
+            <span key={skill} className="px-2 py-1 bg-brand-primary/10 text-brand-primary text-xs rounded-full">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const EmployerVideoMockup = () => (
+    <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300">
+      {/* Video area */}
+      <div className="aspect-video bg-gradient-to-br from-brand-secondary/10 to-brand-accent/5 relative flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-transparent"></div>
+        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+          <Play className="text-brand-secondary ml-1" size={24} />
+        </div>
+        {/* Duration badge */}
+        <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
+          1:20
+        </div>
+      </div>
+      
+      {/* Company info */}
+      <div className="p-4">
+        <div className="flex items-start space-x-3">
+          <div className="w-12 h-12 bg-gradient-to-br from-brand-secondary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-sm">
+            IT
+          </div>
+          <div className="flex-1">
+            <h4 className="font-semibold text-gray-900">IT Solutions</h4>
+            <p className="text-sm text-brand-secondary font-medium">Senior React Developer</p>
+            <div className="flex items-center space-x-2 mt-1">
+              <MapPin size={12} className="text-gray-400" />
+              <span className="text-xs text-gray-600">Санкт-Петербург</span>
+              <Calendar size={12} className="text-gray-400" />
+              <span className="text-xs text-gray-600">Удаленно</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-3 flex items-center justify-between">
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 bg-brand-secondary/10 text-brand-secondary text-xs rounded-full">
+              200k - 300k ₽
+            </span>
+          </div>
+          <div className="text-xs text-gray-600">
+            +50 откликов
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-12 lg:py-16 bg-gradient-to-br from-gray-50 via-white to-brand-primary/5 relative overflow-hidden">
@@ -35,7 +126,7 @@ const VideoSection = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Tab switcher */}
           <div className="flex bg-white/90 backdrop-blur-sm rounded-xl p-1 shadow-lg border border-gray-100 mb-8 animate-scale-in" style={{animationDelay: '0.3s'}}>
             <button
@@ -63,10 +154,10 @@ const VideoSection = () => {
           </div>
 
           {/* Content grid */}
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
-            {/* Benefits */}
-            <div className="space-y-4 animate-slide-in-right" style={{animationDelay: '0.4s'}}>
-              <h3 className="font-display font-bold text-xl text-gray-900 mb-4">
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            {/* Left side - Benefits */}
+            <div className="space-y-6 animate-slide-in-right" style={{animationDelay: '0.4s'}}>
+              <h3 className="font-display font-bold text-xl text-gray-900">
                 {activeTab === 'candidates' ? 'Покажите себя с лучшей стороны' : 'Привлекайте лучших кандидатов'}
               </h3>
               
@@ -88,11 +179,9 @@ const VideoSection = () => {
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Stats and features */}
-            <div className="space-y-4 animate-slide-in-right" style={{animationDelay: '0.5s'}}>
-              <div className="grid grid-cols-2 gap-3">
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-3 mt-6">
                 <div className="glass rounded-xl p-4 text-center group hover:shadow-hover-lift transition-all duration-300">
                   <Clock className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} mx-auto mb-2 group-hover:scale-110 transition-transform`} size={20} />
                   <div className="font-bold text-lg text-gray-900">1:30</div>
@@ -105,17 +194,28 @@ const VideoSection = () => {
                   <div className="text-xs text-gray-600">Внимание</div>
                 </div>
               </div>
-              
-              <div className={`p-4 rounded-xl border ${activeTab === 'candidates' ? 'bg-brand-primary/10 border-brand-primary/20' : 'bg-brand-secondary/10 border-brand-secondary/20'} transition-all duration-300`}>
-                <div className="flex items-center space-x-3">
-                  <Zap className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'}`} size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">
-                      {activeTab === 'candidates' ? 'Быстрое знакомство' : 'Эффективный отбор'}
-                    </p>
-                    <p className="text-xs text-gray-600">
-                      {activeTab === 'candidates' ? 'Работодатели узнают вас за минуту' : 'Найдите идеальных кандидатов'}
-                    </p>
+            </div>
+
+            {/* Right side - Video mockup */}
+            <div className="animate-slide-in-right" style={{animationDelay: '0.5s'}}>
+              <div className="space-y-4">
+                <h4 className="font-semibold text-gray-900 text-center mb-4">
+                  {activeTab === 'candidates' ? 'Пример видео визитки соискателя' : 'Пример видео визитки вакансии'}
+                </h4>
+                
+                {activeTab === 'candidates' ? <CandidateVideoMockup /> : <EmployerVideoMockup />}
+                
+                <div className={`p-4 rounded-xl border ${activeTab === 'candidates' ? 'bg-brand-primary/10 border-brand-primary/20' : 'bg-brand-secondary/10 border-brand-secondary/20'} transition-all duration-300`}>
+                  <div className="flex items-center space-x-3">
+                    <Zap className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'}`} size={20} />
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">
+                        {activeTab === 'candidates' ? 'Быстрое знакомство' : 'Эффективный отбор'}
+                      </p>
+                      <p className="text-xs text-gray-600">
+                        {activeTab === 'candidates' ? 'Работодатели узнают вас за минуту' : 'Найдите идеальных кандидатов'}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
