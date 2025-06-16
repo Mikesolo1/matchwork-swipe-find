@@ -71,7 +71,7 @@ const VideoSection = () => {
               </h3>
               
               <div className="space-y-3">
-                {activeTab === 'candidates' ? [
+                {(activeTab === 'candidates' ? [
                   'Расскажите о своем опыте и навыках',
                   'Покажите вашу личность и мотивацию',
                   'Продемонстрируйте портфолио или проекты',
@@ -81,7 +81,7 @@ const VideoSection = () => {
                   'Покажите офис и рабочую атмосферу',
                   'Расскажите о проектах и возможностях',
                   'Объясните преимущества работы у вас'
-                ].map((item, index) => (
+                ]).map((item, index) => (
                   <div key={index} className="flex items-start space-x-3 group">
                     <CheckCircle className={`${activeTab === 'candidates' ? 'text-brand-primary' : 'text-brand-secondary'} flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform`} size={16} />
                     <span className="text-gray-700 text-sm">{item}</span>
